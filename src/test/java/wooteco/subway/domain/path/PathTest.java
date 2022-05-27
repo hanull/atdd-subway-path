@@ -1,7 +1,7 @@
 package wooteco.subway.domain.path;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static wooteco.subway.TestFixtures.STANDARD_DISTANCE;
 import static wooteco.subway.TestFixtures.동묘앞역;
 import static wooteco.subway.TestFixtures.분당선_6호선_노선;
@@ -17,7 +17,7 @@ import wooteco.subway.domain.Station;
 
 class PathTest {
 
-    private Path path = new Path(신당역, 창신역, DijkstraShortestGraphAlgorithm.generate(createSections()));
+    private final Path path = new Path(신당역, 창신역, DijkstraShortestGraphAlgorithm.of(createSections()));
 
     @DisplayName("출발역부터 도착역까지의 리스트를 찾는다.")
     @Test

@@ -47,7 +47,7 @@ public class PathService {
         final Station startStation = stationRepository.findById(pathRequest.getSource());
         final Station endStation = stationRepository.findById(pathRequest.getTarget());
         final Sections sections = new Sections(sectionRepository.findAll());
-        return new Path(startStation, endStation, DijkstraShortestGraphAlgorithm.generate(sections));
+        return new Path(startStation, endStation, DijkstraShortestGraphAlgorithm.of(sections));
     }
 
     private List<Line> toLines(List<ShortestPathEdge> edges) {
